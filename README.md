@@ -6,7 +6,7 @@
 
 [![Latest Stable Version](https://img.shields.io/packagist/v/dot-env-it/collage.svg?style=flat-square)](https://packagist.org/packages/dot-env-it/collage)
 [![Total Downloads](https://img.shields.io/packagist/dt/dot-env-it/collage.svg?style=flat-square)](https://packagist.org/packages/dot-env-it/collage)
-[![License](https://img.shields.io/packagist/l/dot-env-it/collage.svg?style=flat-square)](https://packagist.org/packages/dot-env-it/collage/LICENSE.md)
+[![License](https://img.shields.io/packagist/l/dot-env-it/collage.svg?style=flat-square)](https://packagist.org/packages/dot-env-it/collage)
 
 
 A dynamic, memory-safe image collage generator for Laravel. This package evaluates image orientations on the fly to produce structural, clean masonry grids (such as top-banners or side-portrait pillars) layouts.
