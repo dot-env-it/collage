@@ -1,4 +1,13 @@
 # Dot-Env-It Collage
+<picture>
+    <source media="(prefers-color-scheme: dark)" srcset="https://banners.beyondco.de/Dot-Env-It%20Collage.png?pattern=topography&style=style_2&fontSize=100px&md=1&showWatermark=1&theme=dark&packageManager=composer+require&packageName=dot-env-it%2Fcollage&description=An+adaptive,+memory-safe+image+collage+generator+for+Laravel.&images=https://raw.githubusercontent.com/laravel/art/refs/heads/master/laravel-logo.svg">
+    <img src="https://banners.beyondco.de/Laravel%20Calendar.png?pattern=topography&style=style_2&fontSize=100px&md=1&showWatermark=1&theme=light&packageManager=composer+require&packageName=dot-env-it%2Fcollage&description=A+high-performance+FullCalendar+wrapper+for+Laravel.&images=https://raw.githubusercontent.com/laravel/art/refs/heads/master/laravel-logo.svg" alt="Dot-Env-It Collage">
+</picture>
+
+[![Latest Stable Version](https://img.shields.io/packagist/v/dot-env-it/collage.svg?style=flat-square)](https://packagist.org/packages/dot-env-it/collage)
+[![Total Downloads](https://img.shields.io/packagist/dt/dot-env-it/collage.svg?style=flat-square)](https://packagist.org/packages/dot-env-it/collage)
+[![License](https://img.shields.io/packagist/l/dot-env-it/collage.svg?style=flat-square)](https://packagist.org/packages/dot-env-it/collage)
+
 
 A dynamic, memory-safe image collage generator for Laravel. This package evaluates image orientations on the fly to produce structural, clean masonry grids (such as top-banners or side-portrait pillars) layouts.
 

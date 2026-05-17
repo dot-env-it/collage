@@ -1,0 +1,53 @@
+name: Preview Updater
+
+on:
+ schedule:
+  -   cron: '20 2 * * *' # 02:20 AM on everyday
+ workflow_dispatch:
+
+permissions:
+ contents: write
+ pull-requests: write
+
+jobs:
+ preview:
+  runs-on: ubuntu-latest
+
+  steps:
+   -   uses: actions/checkout@v6
+       with:
+        fetch-depth: 0
+
+   -   name: Update banner
+       uses: TheDragonCode/github-preview-updater@v2
+       id: preview
+       with:
+        # Personal access token (PAT) used when interacting with Git and GitHub.
+        #
+        # We recommend using a service account with the least permissions necessary.
+        # Also, when generating a new PAT, select the least scopes necessary.
+        #
+        # [Learn more about creating and using encrypted secrets](https://help.github.com/actions/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets)
+        #
+        # Required: true
+        token: ${{ secrets.GITHUB_TOKEN }}
+
+        # Path to the settings file
+        #
+        # By default, .github/preview-updater.yml
+        #
+        # Required: false
+        config: ''
+
+        # Specifies the path to the README file.
+        #
+        # By default, README.md
+        #
+        # Required: false
+        readme: ''
+
+   -   name: Merge PR
+       if: steps.preview.outputs.pullRequestNumber != ''
+       env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+       run: gh pr merge --merge --delete-branch ${{ steps.preview.outputs.pullRequestNumber }}
