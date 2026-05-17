@@ -1,4 +1,4 @@
-# DotEnvIt Collage Engine
+# Dot-Env-It Collage
 
 A dynamic, memory-safe image collage generator for Laravel. This package evaluates image orientations on the fly to produce structural, clean masonry grids (such as top-banners or side-portrait pillars) layouts.
 
