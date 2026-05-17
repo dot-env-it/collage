@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace DotEnvIt\Collage;
 
 use Illuminate\Support\ServiceProvider;
@@ -15,7 +17,7 @@ class CollageServiceProvider extends ServiceProvider
         );
 
         $this->app->bind('collage', function () {
-            return new Collage();
+            return new Collage;
         });
     }
 

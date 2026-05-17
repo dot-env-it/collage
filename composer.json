@@ -1,8 +1,8 @@
 {
     "name": "dot-env-it/collage",
     "description": "An adaptive, memory-safe image collage generator for Laravel.",
-    "type": "library",
     "license": "MIT",
+    "type": "library",
     "authors": [
         {
             "name": "DotEnvIt"
@@ -17,14 +17,20 @@
             "DotEnvIt\\Collage\\": "src/"
         }
     },
+    "config": {
+        "allow-plugins": {
+            "ergebnis/composer-normalize": true,
+            "laravel/pint": true
+        }
+    },
     "extra": {
         "laravel": {
-            "providers": [
-                "DotEnvIt\\Collage\\CollageServiceProvider"
-            ],
             "aliases": {
                 "DynamicCollage": "DotEnvIt\\Collage\\Facades\\DynamicCollage"
-            }
+            },
+            "providers": [
+                "DotEnvIt\\Collage\\CollageServiceProvider"
+            ]
         }
     }
 }
