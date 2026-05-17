@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace DotEnvIt\Collage;
 
 use Illuminate\Support\Facades\Storage;
@@ -18,9 +20,9 @@ class Collage
     protected string $disk;
 
     protected ?string $absolutePath = null;
-    
+
     protected ?string $relativePath = null;
-    
+
     public function __construct()
     {
         // Read directly from config framework with structural class defaults
@@ -32,7 +34,7 @@ class Collage
 
     public static function make(): self
     {
-        return new static();
+        return new static;
     }
 
     // Optional fluid-chain modifiers if you want to override settings at runtime:
@@ -78,7 +80,7 @@ class Collage
                 continue;
             }
             [$width, $height] = getimagesize($path);
-            $imageMeta[] = ['path' => $path, 'width' => $width, 'height' => $height];
+            $imageMeta[]      = ['path' => $path, 'width' => $width, 'height' => $height];
         }
 
         if (empty($imageMeta)) {
@@ -87,8 +89,7 @@ class Collage
 
         if ($count === 3) {
             $canvas = $this->buildThreeImageLayout($imageMeta);
-        }
-        else {
+        } else {
             $canvas = $this->buildFallbackLayout($imageMeta, $count);
         }
 
@@ -97,26 +98,22 @@ class Collage
 
         $canvas->save($this->absolutePath);
         $canvas->destroy();
-        
+
         $this->relativePath = $destinationPath;
 
         return $this;
     }
 
-    /**
-     * Get the absolute local disk directory file path of the saved collage.
-     */
+    /** Get the absolute local disk directory file path of the saved collage. */
     public function getPath(): ?string
     {
         return $this->absolutePath;
     }
 
-    /**
-     * Get the publicly accessible HTTP application asset URL of the saved collage.
-     */
+    /** Get the publicly accessible HTTP application asset URL of the saved collage. */
     public function getUrl(): ?string
     {
-        if (!$this->relativePath) {
+        if (! $this->relativePath) {
             return null;
         }
 
@@ -143,8 +140,7 @@ class Collage
                 $topScaledHeight       = (int) ($topScaledHeight * $scaleRatio);
                 $targetBottomRowHeight = (int) ($targetBottomRowHeight * $scaleRatio);
                 $finalHeight           = $this->canvasHeight;
-            }
-            else {
+            } else {
                 $finalHeight = $calculatedHeight;
             }
 
@@ -160,8 +156,7 @@ class Collage
 
             $tile3 = Image::make($imageMeta[2]['path'])->fit($colWidth, $targetBottomRowHeight);
             $canvas->insert($tile3, 'top-left', $this->padding + $colWidth + $this->padding, $yOffsetForBottomRow)->destroy();
-        }
-        else {
+        } else {
             $colWidth = floor(($this->canvasWidth - ($this->padding * 3)) / 2);
 
             $right1_scaled_height = (int) (($imageMeta[1]['height'] / $imageMeta[1]['width']) * $colWidth);
@@ -173,8 +168,7 @@ class Collage
                 $right1_scaled_height = (int) ($right1_scaled_height * $scaleRatio);
                 $right2_scaled_height = (int) ($right2_scaled_height * $scaleRatio);
                 $targetLeftHeight     = $this->canvasHeight;
-            }
-            else {
+            } else {
                 $targetLeftHeight = $calculatedLeftHeight;
             }
 
@@ -208,8 +202,7 @@ class Collage
                     'height' => (int) (($first['height'] / $first['width']) * ($this->canvasWidth - ($this->padding * 2))),
                 ];
                 array_shift($imageMeta);
-            }
-            else {
+            } else {
                 $targetWidth = floor(($this->canvasWidth - ($this->padding * 3)) * 0.4);
                 $rowsData[]  = [
                     'type'   => 'side-portrait',
@@ -230,8 +223,7 @@ class Collage
                 }
 
                 $rowsData[] = ['type' => 'pair-row', 'images' => $pair, 'height' => $targetHeight];
-            }
-            else {
+            } else {
                 $single     = $pair[0];
                 $rowsData[] = [
                     'type'   => 'single-row',
@@ -246,8 +238,7 @@ class Collage
         foreach ($rowsData as $row) {
             if ($row['type'] === 'side-portrait') {
                 $portraitSideHeight = $row['height'];
-            }
-            else {
+            } else {
                 $totalCanvasHeight += $row['height'] + $this->padding;
             }
         }
@@ -258,8 +249,7 @@ class Collage
         if ($calculatedHeight > $this->canvasHeight) {
             $globalScaleRatio = $this->canvasHeight / $calculatedHeight;
             $finalHeight      = $this->canvasHeight;
-        }
-        else {
+        } else {
             $finalHeight = $calculatedHeight;
         }
 
