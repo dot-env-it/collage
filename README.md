@@ -1,7 +1,7 @@
 # Dot-Env-It Collage
 <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://banners.beyondco.de/Dot-Env-It%20Collage.png?pattern=topography&style=style_2&fontSize=100px&md=1&showWatermark=1&theme=dark&packageManager=composer+require&packageName=dot-env-it%2Fcollage&description=An+adaptive,+memory-safe+image+collage+generator+for+Laravel.&images=https://raw.githubusercontent.com/laravel/art/refs/heads/master/laravel-logo.svg">
-    <img src="https://banners.beyondco.de/Laravel%20Calendar.png?pattern=topography&style=style_2&fontSize=100px&md=1&showWatermark=1&theme=light&packageManager=composer+require&packageName=dot-env-it%2Fcollage&description=A+high-performance+FullCalendar+wrapper+for+Laravel.&images=https://raw.githubusercontent.com/laravel/art/refs/heads/master/laravel-logo.svg" alt="Dot-Env-It Collage">
+    <source media="(prefers-color-scheme: dark)" srcset="https://banners.beyondco.de/Collage.png?pattern=topography&style=style_2&fontSize=100px&md=1&showWatermark=1&theme=dark&packageManager=composer+require&packageName=dot-env-it%2Fcollage&description=An+adaptive%2C+memory-safe+image+collage+generator+for+Laravel.&images=https%3A%2F%2Fwww.php.net%2Fimages%2Flogos%2Fnew-php-logo.svg">
+    <img src="https://banners.beyondco.de/Collage.png?pattern=topography&style=style_2&fontSize=100px&md=1&showWatermark=1&theme=light&packageManager=composer+require&packageName=dot-env-it%2Fcollage&description=An+adaptive%2C+memory-safe+image+collage+generator+for+Laravel.&images=https%3A%2F%2Fwww.php.net%2Fimages%2Flogos%2Fnew-php-logo.svg" alt="Collage">
 </picture>
 
 [![Latest Stable Version](https://img.shields.io/packagist/v/dot-env-it/collage.svg?style=flat-square)](https://packagist.org/packages/dot-env-it/collage)
